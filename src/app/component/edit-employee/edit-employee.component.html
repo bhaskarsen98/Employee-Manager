@@ -1,0 +1,37 @@
+<button pButton icon="pi pi-pencil" class="op-buttons p-button-rounded p-button-warning" (click)="openNew()"></button>
+<!-- edit-dialog -->
+<p-dialog [(visible)]="employeeDialog" [style]="{width: '450px'}" header="Edit Employee Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="p-field">
+            <label for="name">Name</label>
+            <input type="text" pInputText id="name" [(ngModel)]="tempEmp.empName" required autofocus />
+            <small class="p-error" *ngIf="submitted && !tempEmp.empName">Name is required.</small>
+        </div>
+
+        <div class="p-field">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" pInputText id="jobTitle" [(ngModel)]="tempEmp.jobTitle" required autofocus />
+            <small class="p-error" *ngIf="submitted && !tempEmp.jobTitle">JOb Title is required.</small>
+        </div>
+        
+        <div class="p-field">
+            <label class="p-mb-3">Active Status</label>
+            <div class="p-formgrid p-grid">
+                <div class="p-field-radiobutton p-col-6">
+                    <p-radioButton id="yes" name="status" value="true" [(ngModel)]="tempEmp.status"></p-radioButton>
+                    <label for="yes">Yes</label>
+                </div>
+                
+                <div class="p-field-radiobutton p-col-6">
+                    <p-radioButton id="no" name="status" value="false" [(ngModel)]="tempEmp.status"></p-radioButton>
+                    <label for="no">No</label>
+                </div>
+            </div>
+        </div>
+    </ng-template>    
+    
+    <ng-template pTemplate="footer">
+        <button pButton label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton label="Save" icon="pi pi-check" class="p-button-text" (click)="editEmployee()"></button>
+    </ng-template>
+</p-dialog>
