@@ -28,6 +28,7 @@ import {TabViewModule} from 'primeng/tabview';
 import {PaginatorModule} from 'primeng/paginator';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     TabViewModule,
     PaginatorModule,
     ProgressSpinnerModule,
+    ToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

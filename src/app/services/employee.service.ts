@@ -10,11 +10,14 @@ export class EmployeeService {
 
   apiServer = "http://localhost:3000";
   dbFile = '/employees/'
+
+  //representation header
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
+  //object for request and respomse headers
   constructor(private httpc: HttpClient) { }
 
   create(employee): Observable<employee> {

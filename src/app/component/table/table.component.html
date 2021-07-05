@@ -1,6 +1,12 @@
-<div class="card">
-    <div class="p-d-flex box p-shadow-6">{{temp.length}} people work in your organization!</div>
-</div>
+<p-toolbar [style]="{margin : '10px'}">
+    <div class="p-toolbar-group-left">
+        <div>{{temp.length}} people work in your organization!</div>
+    </div>
+
+    <div class="p-toolbar-group-right">
+        <button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-refresh" (click)="ngOnInit()" label='Reload'></button>
+    </div>
+</p-toolbar>
 <div class="card" > 
     <p-table  [value]="temp" sortMode="multiple" [rows]="3" [paginator]="true" [rowsPerPageOptions]="[3, 5, 7]" styleClass="p-datatable-responsive-demo">
         <ng-template pTemplate="header">

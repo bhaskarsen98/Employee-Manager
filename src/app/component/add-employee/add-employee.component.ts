@@ -14,8 +14,7 @@ export class AddEmployeeComponent implements OnInit {
   tempEmp: employee;
   constructor(public empService: EmployeeService) { }
 
-  ngOnInit(): void { 
-  }
+  ngOnInit(): void { }
 
   openNew() {
     this.tempEmp = {
@@ -32,12 +31,17 @@ export class AddEmployeeComponent implements OnInit {
     this.submitted = false;
   }
   saveEmployee() {
-    this.empService.create(this.tempEmp).subscribe(res =>{ 
-      console.log('employee added!');
-      this.employeeDialog = false;
-      location.reload(true); //wrong way , use routes and shift button to table component. Call ngOnINit hook there
+    this.submitted = true;
+    if(this.tempEmp.empName != '' && this.tempEmp.jobTitle != ''){
 
-    })
+      this.empService.create(this.tempEmp).subscribe(res =>{ 
+        console.log('employee added!');
+        this.employeeDialog = false;
+        this.submitted = true;
+        location.reload(true); //wrong way , use routes and shift button to table component. Call ngOnINit hook there
+
+      })
+    }
   }
 
 }

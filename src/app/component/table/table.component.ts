@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 export class TableComponent implements OnInit {
 
   temp: employee[] = [];
-  isBusy: boolean = false;
+  isBusy: boolean = false;  //when dialog is open
 
   // edit-employee
   employeeDialog: boolean;
-  submitted: boolean;
+  submitted: boolean; //invalid/empty field
   tempEmp: employee;
   id: string;
 
@@ -23,17 +23,17 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void { 
     //loads table using get req
+    this.isBusy = true;
     this.empService.get().subscribe((data: employee[]) => {
       this.temp = data;
+      this.isBusy = false;
     })
   }
 
   //delete func calls delete req
   deleteEmployee(e: employee) {
-    this.isBusy = true;
     this.empService.delete(e.id).subscribe(() => {  
-      this.isBusy = false;
-      this.ngOnInit();  //reloads the table by get call in oninit hook 
+      this.ngOnInit();  //reloads the table by get call in ngOninit hook 
     });
     
   };
@@ -54,13 +54,16 @@ export class TableComponent implements OnInit {
     this.submitted = false;
   }
   editEmployee() {
+    this.submitted = true;
     // console.log(this.tempEmp);
-    this.empService.update(this.id, this.tempEmp).subscribe(() => {
-      console.log("employeeUpdated");
-      this.hideDialog();
-      this.ngOnInit();  //reload table
-    });
-    
+    if(this.tempEmp.empName != '' && this.tempEmp.jobTitle != ''){
+      this.empService.update(this.id, this.tempEmp).subscribe(() => {
+        // console.log("employeeUpdated");
+        this.ngOnInit();  //reload table
+        this.hideDialog();
+        
+      });
+    }
   }
 
 }

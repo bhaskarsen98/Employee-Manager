@@ -1,90 +1,6 @@
 {
   "employees": [
     {
-      "id": 1,
-      "empName": "Eleni",
-      "status": "false",
-      "jobTitle": "Analyst Programmer"
-    },
-    {
-      "id": 2,
-      "empName": "Pail",
-      "status": "true",
-      "jobTitle": "Analyst Programmer"
-    },
-    {
-      "id": 3,
-      "empName": "Salomon",
-      "status": "true",
-      "jobTitle": "Nuclear Power Engineer"
-    },
-    {
-      "id": 4,
-      "empName": "Christoph",
-      "status": "false",
-      "jobTitle": "Environmental Specialist"
-    },
-    {
-      "id": 5,
-      "empName": "Bess",
-      "status": "true",
-      "jobTitle": "Help Desk Technician"
-    },
-    {
-      "id": 6,
-      "empName": "Elton",
-      "status": "false",
-      "jobTitle": "Office Assistant II"
-    },
-    {
-      "id": 7,
-      "empName": "Marget",
-      "status": "false",
-      "jobTitle": "Electrical Engineer"
-    },
-    {
-      "id": 8,
-      "empName": "Orin",
-      "status": "false",
-      "jobTitle": "Speech Pathologist"
-    },
-    {
-      "id": 9,
-      "empName": "Betta",
-      "status": "false",
-      "jobTitle": "Assistant Manager"
-    },
-    {
-      "id": 10,
-      "empName": "Tulley",
-      "status": "false",
-      "jobTitle": "Account Executive"
-    },
-    {
-      "id": 11,
-      "empName": "Daffy",
-      "status": "true",
-      "jobTitle": "Administrative Officer"
-    },
-    {
-      "id": 12,
-      "empName": "Christoper",
-      "status": "true",
-      "jobTitle": "General Manager"
-    },
-    {
-      "id": 13,
-      "empName": "Gerhard",
-      "status": "false",
-      "jobTitle": "Programmer Analyst II"
-    },
-    {
-      "id": 14,
-      "empName": "Flor",
-      "status": "true",
-      "jobTitle": "Research Nurse"
-    },
-    {
       "id": 15,
       "empName": "Joellyn",
       "status": "false",
@@ -95,12 +11,6 @@
       "empName": "Muire",
       "status": "true",
       "jobTitle": "Programmer I"
-    },
-    {
-      "id": 17,
-      "empName": "Josh",
-      "status": "false",
-      "jobTitle": "Systems Administrator II"
     },
     {
       "id": 18,
@@ -605,6 +515,12 @@
       "jobTitle": "intern",
       "status": "true",
       "id": 101
+    },
+    {
+      "empName": "elon musk",
+      "jobTitle": "tweeter",
+      "status": "false",
+      "id": 102
     }
   ]
 }
