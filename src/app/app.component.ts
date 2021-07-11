@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'POC-crud-app';
+
+  locales = [
+    {code: 'en-US', label: 'English'},
+    {code: 'hi', label: 'हिंदी'},
+  ]
+
+  constructor(@Inject(LOCALE_ID) protected localeId: string){}
 }

@@ -1,2 +1,9 @@
 <app-table></app-table>
-<app-add-employee></app-add-employee>
+<!-- <router-outlet></router-outlet> -->
+<ul>
+    <li *ngFor="let locale of locales">
+      <a href="/{{locale.code}}/">
+        {{locale.label}}
+      </a>
+    </li>
+  </ul>
