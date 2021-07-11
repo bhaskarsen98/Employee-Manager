@@ -21,7 +21,7 @@ export class EmployeeService {
   constructor(private httpc: HttpClient) { }
 
   create(employee): Observable<employee> {
-    return this.httpc.post<employee>(this.apiServer + this.dbFile, JSON.stringify(employee), this.httpOptions)
+    return this.httpc.post<employee>(this.apiServer + this.dbFile, employee, this.httpOptions)
   }  
 
   get(): Observable<employee[]> {
@@ -33,11 +33,11 @@ export class EmployeeService {
   }
 
   update(id, employee): Observable<employee> {
-    return this.httpc.put<employee>(this.apiServer + this.dbFile + id, JSON.stringify(employee), this.httpOptions)
+    return this.httpc.put<employee>(this.apiServer + this.dbFile + id, employee, this.httpOptions)
   }
 
-  delete(id){
-    return this.httpc.delete<employee>(this.apiServer + this.dbFile + id, this.httpOptions)
+  delete(id: number):Observable<number>{
+    return this.httpc.delete<number>(this.apiServer + this.dbFile + id, this.httpOptions)
   }
 
 }
