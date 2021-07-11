@@ -2,8 +2,8 @@
   "employees": [
     {
       "id": 15,
-      "empName": "Joellyn",
-      "status": "false",
+      "empName": "Joelly",
+      "status": "true",
       "jobTitle": "General Manager"
     },
     {
@@ -11,18 +11,6 @@
       "empName": "Muire",
       "status": "true",
       "jobTitle": "Programmer I"
-    },
-    {
-      "id": 18,
-      "empName": "Gill",
-      "status": "true",
-      "jobTitle": "Dental Hygienist"
-    },
-    {
-      "id": 19,
-      "empName": "Mollie",
-      "status": "true",
-      "jobTitle": "Structural Analysis Engineer"
     },
     {
       "id": 20,
@@ -505,22 +493,10 @@
       "jobTitle": "VP Marketing"
     },
     {
-      "id": 100,
-      "empName": "Will",
-      "status": "false",
-      "jobTitle": "Nurse"
-    },
-    {
       "empName": "Bhaskar Sen",
       "jobTitle": "intern",
       "status": "true",
       "id": 101
-    },
-    {
-      "empName": "elon musk",
-      "jobTitle": "tweeter",
-      "status": "false",
-      "id": 102
     }
   ]
 }
