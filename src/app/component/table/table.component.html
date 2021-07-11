@@ -1,23 +1,26 @@
 <p-toolbar [style]="{margin : '10px'}">
     <div class="p-toolbar-group-left">
-        <div>{{temp.length}} people work in your organization!</div>
+        <div i18n='x number of employees work'>{{temp.length}} people work in your organization!</div>
     </div>
-
     <div class="p-toolbar-group-right">
-        <button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-refresh" (click)="ngOnInit()" label='Reload'></button>
+        <button pButton type="button" class="refresh-button p-button-raised p-button-rounded" icon="pi pi-refresh" (click)="ngOnInit()" i18n-label label='Reload'></button>
     </div>
 </p-toolbar>
+
+<!-- load table -->
+
 <div class="card" > 
     <p-table  [value]="temp" sortMode="multiple" [rows]="3" [paginator]="true" [rowsPerPageOptions]="[3, 5, 7]" styleClass="p-datatable-responsive-demo">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="empName">Employee Name<p-sortIcon field="empName"></p-sortIcon></th>
-                <th pSortableColumn="jobTitle">Job Title<p-sortIcon field="jobTitle"></p-sortIcon></th>
-                <th pSortableColumn="status">Status<p-sortIcon field="status"></p-sortIcon></th>
-                <th>Operations</th>
+                <th i18n='Employee name' pSortableColumn="empName">Employee Name<p-sortIcon field="empName"></p-sortIcon></th>
+                <th i18n='Job Title' pSortableColumn="jobTitle">Job Title<p-sortIcon field="jobTitle"></p-sortIcon></th>
+                <th i18n='Status' pSortableColumn="status">Status<p-sortIcon field="status"></p-sortIcon></th>
+                <th i18n='Operations'>Operations</th>
             </tr>
         </ng-template>
         <ng-template ngIf* = "temp.length > 0" pTemplate="body" let-temp>
+        <!-- <ng-template pTemplate="body" let-temp>     -->
             <tr>
                 <td>{{temp.empName}}</td>
                 <td>{{temp.jobTitle}}</td>
@@ -26,10 +29,8 @@
                     <i class="pi pi-times-circle" *ngIf = "temp.status == 'false' "></i>
                 </td>
                 <td>
-                    <!-- <app-edit-employee class="op-buttons" routerLink="'POC/edit/' + {{temp.id}}"></app-edit-employee> -->
-                    <!-- <button pButton icon="pi pi-pencil" class="op-buttons p-button-rounded p-button-warning" routerLink = '{{temp.id}}' ></button> -->
-                    <button pButton icon="pi pi-pencil" class="op-buttons p-button-rounded p-button-warning" (click)="openNew(temp.id)"></button>
-                    <button pButton icon="pi pi-trash" class="op-buttons p-button-rounded p-button-danger" (click)="deleteEmployee(temp)" ></button>
+                    <button pButton icon="pi pi-pencil" class="edit-button op-buttons p-button-rounded p-button-warning" (click)='openNew(temp.id)' ></button>
+                    <button pButton icon="pi pi-trash" class="delete-button op-buttons p-button-rounded p-button-danger" (click)="deleteEmployee(temp)" ></button>
                     <p-progressSpinner class = "spin" *ngIf = 'isBusy == true'></p-progressSpinner>
                 </td>
             </tr>
@@ -38,10 +39,18 @@
 <div>
     
 
+<!-- add new Employee -->
+
+<p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+        <button pButton i18n-label label="New" icon="pi pi-plus" class="new-button p-button-success p-mr-2" (click)='openNew("")'></button>
+    </ng-template>
+</p-toolbar>
 
 
-<!-- edit-dialog -->
-<p-dialog [(visible)]="employeeDialog" [style]="{width: '450px'}" header="Edit Employee Details" [modal]="true" styleClass="p-fluid">
+<!-- add-edit-dialog -->
+
+<p-dialog [(visible)]="employeeDialog" [style]="{width: '450px'}" header="{{useCase}} Employee Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <div class="p-field">
             <label for="name">Name</label>
@@ -72,7 +81,7 @@
     </ng-template>    
     
     <ng-template pTemplate="footer">
-        <button pButton label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-        <button pButton label="Save" icon="pi pi-check" class="p-button-text" (click)="editEmployee()"></button>
+        <button pButton i18n-label label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton i18n-label label="Save" icon="pi pi-check" class="p-button-text" (click)="saveChanges()"></button>
     </ng-template>
 </p-dialog>

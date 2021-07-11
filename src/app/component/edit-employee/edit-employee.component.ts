@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { employee } from 'src/app/domain/employee';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -8,14 +8,15 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./edit-employee.component.css']
 })
 export class EditEmployeeComponent implements OnInit {
+  
+  tempEmp: employee;
   employeeDialog: boolean;
   submitted: boolean;
-  tempEmp: employee;
   id: string;
-  constructor(private route: ActivatedRoute, public empService: EmployeeService) { }
+  constructor(private router: ActivatedRoute, public empService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.router.queryParams.subscribe(params => {
       console.log('reachedEditComp');
       this.id = params['id'];
       this.empService.getById(this.id).subscribe((data: employee) => {
@@ -23,6 +24,9 @@ export class EditEmployeeComponent implements OnInit {
       });
       this.openNew();
     });
+
+    this.submitted = false;
+    this.employeeDialog = true;
 
     
     
