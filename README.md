@@ -7,6 +7,13 @@
   - Using Observables
   - Has option to view app in different locale
   - Code coverage: 100% Branch coverage: 93%
+
+- ScreenShots
+  - <img src="https://github.com/bhaskarsen98/employee-crud-app/blob/master/src/assets/Screenshot%20from%202021-12-28%2012-23-11.png" width="480" height="270">
+  - <img src="https://github.com/bhaskarsen98/employee-crud-app/blob/master/src/assets/Screenshot%20from%202021-12-28%2012-24-50.png" width="480" height="270">
+  - <img alt="Update Operation" src="https://github.com/bhaskarsen98/employee-crud-app/blob/master/src/assets/Screenshot%20from%202021-12-28%2012-25-02.png" width="480" height="270">
+  - <img src="https://github.com/bhaskarsen98/employee-crud-app/blob/master/src/assets/Screenshot%20from%202021-12-28%2012-25-22.png"  width="480" height="270">
+
 - Built using
   - Angular 10
   - PrimeFaces
