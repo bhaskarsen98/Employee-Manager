@@ -11,5 +11,3 @@ updates:
       interval: "weekly"
       # Check for npm updates on Sundays
       day: "sunday"
-    reviewers:
-      - "bhaskarsen98"
